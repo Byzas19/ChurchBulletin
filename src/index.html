@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>St. Michael's Church Bulletin Generator</title>
+    <link
+      rel="icon"
+      type="image/jpeg"
+      href="data:image/jpeg;base64,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"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div style="display: flex; align-items: center; gap: 14px">
+        <div class="logo">
+          <img
+            src="data:image/jpeg;base64,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"
+            alt="Church logo"
+          />
+        </div>
+        <div>
+          <h1>St. Michael's Bulletin Generator</h1>
+          <p>Ukrainian Catholic Church</p>
+        </div>
+      </div>
+      <div class="hdr-right">
+        <label>Sunday Date:</label>
+        <input type="date" id="sundayDate" value="2026-02-01" />
+      </div>
+    </header>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <label class="btn-action file-label"
+        >📂 Load<input
+          type="file"
+          accept=".bulletin,.json"
+          id="loadFileInput"
+      /></label>
+      <button class="btn-action" id="btnSave">💾 Save</button>
+      <button class="btn-action btn-clear" id="btnClear">
+        🗑 Clear
+      </button>
+      <button class="btn-action btn-export" id="btnExport">
+        📥 Export PDF
+      </button>
+      <div class="sep"></div>
+      <div class="font-ctl">
+        <label>Schedule:</label>
+        <select id="schedFontSize">
+          <option value="7">7pt</option>
+          <option value="7.5">7.5pt</option>
+          <option value="8">8pt</option>
+          <option value="8.5">8.5pt</option>
+          <option value="9">9pt</option>
+          <option value="9.5" selected>9.5pt</option>
+          <option value="10">10pt</option>
+          <option value="10.5">10.5pt</option>
+          <option value="11">11pt</option>
+          <option value="11.5">11.5pt</option>
+          <option value="12">12pt</option>
+        </select>
+      </div>
+      <div class="font-ctl">
+        <label>Announcements:</label>
+        <select id="annFontSize">
+          <option value="7">7pt</option>
+          <option value="7.5">7.5pt</option>
+          <option value="8">8pt</option>
+          <option value="8.5">8.5pt</option>
+          <option value="9">9pt</option>
+          <option value="9.5" selected>9.5pt</option>
+          <option value="10">10pt</option>
+          <option value="10.5">10.5pt</option>
+          <option value="11">11pt</option>
+          <option value="11.5">11.5pt</option>
+          <option value="12">12pt</option>
+        </select>
+      </div>
+      <div class="layout-info hidden" id="layoutInfo"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+      <div class="tabs">
+        <button id="tabSchedule" class="active">
+          📅 Liturgy Schedule
+        </button>
+        <button id="tabAnnouncements">
+          📢 Announcements
+        </button>
+        <button id="tabBackCover">
+          📋 Back Cover
+        </button>
+        <button id="tabPictures">
+          🖼 Pictures
+        </button>
+        <button id="tabPreview">
+          📄 Preview
+        </button>
+      </div>
+
+      <div class="tab-content" id="scheduleTab">
+        <div class="hint">
+          <strong>Formatting:</strong>
+          <code>+Name</code> → † Name (deceased) &nbsp;|&nbsp;
+          <code>@Text</code> → <b><i>Bold Italic</i></b> (liturgical days)
+        </div>
+        <div id="scheduleList"></div>
+        <button class="btn-add" id="btnAddSchedule">
+          + Add Liturgy Entry
+        </button>
+      </div>
+
+      <div class="tab-content hidden" id="announcementsTab">
+        <div class="hint">
+          All announcements appear in the <strong>right column</strong>. If they
+          don't fit, overflow announcements are automatically placed in the left
+          column below the schedule.<br />
+          <strong>Formatting:</strong>
+          <code>#</code> → • bullet &nbsp;|&nbsp; <code>+Name</code> → † Name
+        </div>
+        <div id="annList"></div>
+        <button class="btn-add" id="btnAddAnnouncement">
+          + Add Announcement
+        </button>
+      </div>
+
+      <div class="tab-content hidden" id="backcoverTab">
+        <div class="hint">
+          This information appears on the <strong>back cover</strong> of the
+          printed bulletin (the reverse side). Edit the fields below as needed.
+        </div>
+        <div class="card" style="border-left: 4px solid var(--navy)">
+          <div class="field" style="margin-bottom: 8px">
+            <label>Church Name</label
+            ><input
+              type="text"
+              id="bcChurchName"
+              style="font-size: 16px; font-weight: 600"
+            />
+          </div>
+          <div class="card-row">
+            <div class="field" style="flex: 1">
+              <label>Address Line 1</label
+              ><input
+                type="text"
+                id="bcAddress1"
+              />
+            </div>
+            <div class="field" style="flex: 1">
+              <label>Address Line 2</label
+              ><input
+                type="text"
+                id="bcAddress2"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--gold)">
+          <div
+            style="
+              font-size: 10px;
+              color: #8a7d6e;
+              font-weight: 600;
+              margin-bottom: 6px;
+            "
+          >
+            Contact Information
+          </div>
+          <div class="card-row">
+            <div
+              style="
+                flex: 0 0 140px;
+                display: flex;
+                align-items: center;
+                font-size: 13px;
+                color: #5a4e3e;
+                padding-top: 14px;
+              "
+            >
+              Parish Priest:
+            </div>
+            <div class="field" style="flex: 1">
+              <label>Name</label
+              ><input
+                type="text"
+                id="bcPriestName"
+                style="font-weight: 700"
+              />
+            </div>
+          </div>
+          <div class="card-row">
+            <div
+              style="
+                flex: 0 0 140px;
+                display: flex;
+                align-items: center;
+                font-size: 13px;
+                color: #5a4e3e;
+                padding-top: 14px;
+              "
+            >
+              Telephone:
+            </div>
+            <div class="field" style="flex: 1">
+              <label>Phone Number</label
+              ><input
+                type="text"
+                id="bcPhone"
+                style="font-weight: 700"
+              />
+            </div>
+          </div>
+          <div class="card-row">
+            <div
+              style="
+                flex: 0 0 140px;
+                display: flex;
+                align-items: center;
+                font-size: 13px;
+                color: #5a4e3e;
+                padding-top: 14px;
+              "
+            >
+              Fax:
+            </div>
+            <div class="field" style="flex: 1">
+              <label>Fax Number</label
+              ><input
+                type="text"
+                id="bcFax"
+                style="font-weight: 700"
+              />
+            </div>
+          </div>
+          <div class="card-row">
+            <div
+              style="
+                flex: 0 0 140px;
+                display: flex;
+                align-items: center;
+                font-size: 13px;
+                color: #5a4e3e;
+                padding-top: 14px;
+              "
+            >
+              Email:
+            </div>
+            <div class="field" style="flex: 1">
+              <label>Email Address</label
+              ><input
+                type="text"
+                id="bcEmail"
+                style="font-weight: 700"
+              />
+            </div>
+          </div>
+          <div class="card-row">
+            <div
+              style="
+                flex: 0 0 140px;
+                display: flex;
+                align-items: center;
+                font-size: 13px;
+                color: #5a4e3e;
+                padding-top: 14px;
+              "
+            >
+              Parish Website:
+            </div>
+            <div class="field" style="flex: 1">
+              <label>Website URL</label
+              ><input
+                type="text"
+                id="bcWebsite"
+                style="font-weight: 700"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content hidden" id="picturesTab">
+        <div class="hint">
+          Upload images below. Switch to the <strong>Preview</strong> tab to see
+          the bulletin. On the preview you can <strong>drag</strong> images to
+          position them and <strong>resize</strong>
+          using the corner handle. Hover over an image to see the ✕ delete
+          button.
+        </div>
+        <label
+          class="btn-add"
+          style="
+            text-align: center;
+            display: block;
+            cursor: pointer;
+            margin-bottom: 12px;
+          "
+        >
+          📁 Click to upload images
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            id="imageUploadInput"
+            style="display: none"
+          />
+        </label>
+        <div id="picGallery" style="min-height: 40px"></div>
+      </div>
+
+      <div class="preview-tab-content hidden" id="previewTab">
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            margin-bottom: 6px;
+            gap: 0;
+          "
+        >
+          <button
+            id="prevPageFront"
+            class="prev-page-btn active"
+          >
+            Inside (Front)
+          </button>
+          <button
+            id="prevPageBack"
+            class="prev-page-btn"
+          >
+            Back Cover
+          </button>
+        </div>
+        <div class="preview-box" id="previewBox">
+          <div class="preview-empty">
+            Click the <strong>Preview</strong> tab to generate the bulletin
+            preview.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="measureContainer"></div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
