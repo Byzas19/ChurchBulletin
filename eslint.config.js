@@ -24,9 +24,9 @@ export default [
       },
     },
     rules: {
-      'no-var': 'warn',
-      'prefer-const': 'warn',
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' }],
       eqeqeq: 'warn',
     },
   },

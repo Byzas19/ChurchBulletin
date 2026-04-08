@@ -18,8 +18,7 @@ export function generatePreview() {
 
   const schedHeight = measureHtml(schedHtml);
   const annHeights = [];
-  for (let j = 0; j < annBlocks.length; j++)
-    annHeights.push(measureHtml(annBlocks[j]));
+  for (let j = 0; j < annBlocks.length; j++) annHeights.push(measureHtml(annBlocks[j]));
 
   let splitIndex = annBlocks.length;
   function rightHeight(si) {
@@ -32,30 +31,45 @@ export function generatePreview() {
     for (let k = si; k < annBlocks.length; k++) h += annHeights[k];
     return h;
   }
-  while (splitIndex > 0 && rightHeight(splitIndex) > leftHeight(splitIndex))
-    splitIndex--;
+  while (splitIndex > 0 && rightHeight(splitIndex) > leftHeight(splitIndex)) splitIndex--;
 
   let rightHtml = '';
   for (let r = 0; r < splitIndex; r++) rightHtml += annBlocks[r];
 
   let overflowAnnHtml = '';
   if (splitIndex < annBlocks.length) {
-    for (let l = splitIndex; l < annBlocks.length; l++)
-      overflowAnnHtml += annBlocks[l];
+    for (let l = splitIndex; l < annBlocks.length; l++) overflowAnnHtml += annBlocks[l];
   }
 
   const previewBox = document.getElementById('previewBox');
   const sm = state.sectionMargins;
   previewBox.innerHTML =
     '<div class="bulletin" id="bulletinContent">' +
-    '<div class="col-left" style="padding:0 ' + sm.leftInner + 'px 0 ' + sm.leftOuter + 'px">' +
-    '<div style="font-size:' + schedFontSize + '">' + schedHtml + '</div>' +
+    '<div class="col-left" style="padding:0 ' +
+    sm.leftInner +
+    'px 0 ' +
+    sm.leftOuter +
+    'px">' +
+    '<div style="font-size:' +
+    schedFontSize +
+    '">' +
+    schedHtml +
+    '</div>' +
     (overflowAnnHtml
-      ? '<div class="left-ann-section" style="font-size:' + annFontSize + '">' + overflowAnnHtml + '</div>'
+      ? '<div class="left-ann-section" style="font-size:' +
+        annFontSize +
+        '">' +
+        overflowAnnHtml +
+        '</div>'
       : '') +
     '</div>' +
-    '<div class="col-right" style="padding:0 ' + sm.rightOuter + 'px 0 ' + sm.rightInner +
-    'px;font-size:' + annFontSize + '">' +
+    '<div class="col-right" style="padding:0 ' +
+    sm.rightOuter +
+    'px 0 ' +
+    sm.rightInner +
+    'px;font-size:' +
+    annFontSize +
+    '">' +
     rightHtml +
     '</div>' +
     '</div>';
@@ -68,12 +82,20 @@ export function generatePreview() {
   const overflowCount = annBlocks.length - splitIndex;
   if (overflowCount > 0) {
     info.textContent =
-      '\uD83D\uDCCF ' + splitIndex + ' announcement(s) right, ' +
-      overflowCount + ' overflow left. ' + state.pictures.length + ' image(s).';
+      '\uD83D\uDCCF ' +
+      splitIndex +
+      ' announcement(s) right, ' +
+      overflowCount +
+      ' overflow left. ' +
+      state.pictures.length +
+      ' image(s).';
   } else {
     info.textContent =
-      '\uD83D\uDCCF All ' + state.announcements.length +
-      ' announcement(s) on right. ' + state.pictures.length + ' image(s).';
+      '\uD83D\uDCCF All ' +
+      state.announcements.length +
+      ' announcement(s) on right. ' +
+      state.pictures.length +
+      ' image(s).';
   }
   info.classList.remove('hidden');
 
@@ -91,14 +113,40 @@ export function generateBackCoverPreview() {
   previewBox.innerHTML =
     '<div class="backcover-preview" id="bulletinContent">' +
     '<div class="bc-box" style="width:50%;height:50%">' +
-    '<div class="bc-church-name">' + escHtml(bc.churchName) + '</div>' +
-    '<div class="bc-address">' + escHtml(bc.address1) + '<br>' + escHtml(bc.address2) + '</div>' +
+    '<div class="bc-church-name">' +
+    escHtml(bc.churchName) +
+    '</div>' +
+    '<div class="bc-address">' +
+    escHtml(bc.address1) +
+    '<br>' +
+    escHtml(bc.address2) +
+    '</div>' +
     '<div class="bc-contacts">' +
-    '<div><span class="bc-label">' + escHtml(bc.priestLabel) + '</span> <span class="bc-value">' + escHtml(bc.priestName) + '</span></div>' +
-    '<div><span class="bc-label">' + escHtml(bc.phoneLabel) + '</span> <span class="bc-value">' + escHtml(bc.phone) + '</span></div>' +
-    '<div><span class="bc-label">' + escHtml(bc.faxLabel) + '</span> <span class="bc-value">' + escHtml(bc.fax) + '</span></div>' +
-    '<div><span class="bc-label">' + escHtml(bc.emailLabel) + '</span> <span class="bc-value">' + escHtml(bc.email) + '</span></div>' +
-    '<div><span class="bc-label">' + escHtml(bc.websiteLabel) + '</span> <span class="bc-value">' + escHtml(bc.website) + '</span></div>' +
+    '<div><span class="bc-label">' +
+    escHtml(bc.priestLabel) +
+    '</span> <span class="bc-value">' +
+    escHtml(bc.priestName) +
+    '</span></div>' +
+    '<div><span class="bc-label">' +
+    escHtml(bc.phoneLabel) +
+    '</span> <span class="bc-value">' +
+    escHtml(bc.phone) +
+    '</span></div>' +
+    '<div><span class="bc-label">' +
+    escHtml(bc.faxLabel) +
+    '</span> <span class="bc-value">' +
+    escHtml(bc.fax) +
+    '</span></div>' +
+    '<div><span class="bc-label">' +
+    escHtml(bc.emailLabel) +
+    '</span> <span class="bc-value">' +
+    escHtml(bc.email) +
+    '</span></div>' +
+    '<div><span class="bc-label">' +
+    escHtml(bc.websiteLabel) +
+    '</span> <span class="bc-value">' +
+    escHtml(bc.website) +
+    '</span></div>' +
     '</div>' +
     '</div>' +
     '</div>';

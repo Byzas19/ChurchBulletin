@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Format check
+        run: npm run format:check
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify single-file output (no external script/link tags)
+        run: |
+          if grep -E '<script[^>]+src=|<link[^>]+href=' dist/StMike_Bulletin_Generator.html; then
+            echo "ERROR: dist output contains external script/link references"
+            exit 1
+          fi
+          echo "OK: output is fully self-contained"
+
+      - name: Upload built bulletin generator
+        uses: actions/upload-artifact@v4
+        with:
+          name: StMike_Bulletin_Generator
+          path: dist/StMike_Bulletin_Generator.html

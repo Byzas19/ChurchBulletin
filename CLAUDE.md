@@ -14,14 +14,20 @@ This application was developed iteratively across multiple sessions between a de
 
 ## Architecture
 
-### Single-File Design
+### Single-File Deliverable, Modular Source
 
-The entire application is one self-contained HTML file with embedded CSS and JavaScript. No build step, no dependencies to install, no server required. The priest opens the file in a web browser and it works. This was a deliberate architectural choice to keep deployment as simple as possible for a non-technical environment.
+The **end deliverable** is one self-contained HTML file with embedded CSS, JavaScript, and assets. No external dependencies at runtime. The priest opens the file in a browser and it works.
 
-### External Libraries (CDN)
+The **source** lives in `src/` as ES modules and is bundled into the single HTML file by Vite + `vite-plugin-singlefile`. The original prototype `StMike_Bulletin_Generator.html` at the project root is kept as a reference/backup. The built output is `dist/StMike_Bulletin_Generator.html`.
 
-- **html2canvas** (1.4.1) — captures the bulletin preview as an image for PDF export
-- **jsPDF** (2.5.1) — generates the PDF file from the captured image
+See [PRODUCTIONALIZATION.md](PRODUCTIONALIZATION.md) for the module layout, toolchain rationale, and migration history.
+
+### Bundled Libraries
+
+- **html2canvas** — captures the bulletin preview as an image for PDF export
+- **jsPDF** — generates the PDF file from the captured image
+
+Both are installed via npm and bundled into the output by Vite. No CDN dependencies at runtime.
 
 ### Data Format
 
@@ -176,7 +182,10 @@ The project context document (`StMike_Bulletin_Project_Context.md`) contains exh
 
 | File                                 | Purpose                                                 |
 | ------------------------------------ | ------------------------------------------------------- |
-| `StMike_Bulletin_Generator.html`     | The application (single self-contained file)            |
+| `StMike_Bulletin_Generator.html`     | Original prototype — reference/backup, still works standalone |
+| `src/`                               | Modular ES module source (Vite + Vitest)                |
+| `dist/StMike_Bulletin_Generator.html` | Built single-file deliverable (`npm run build`)        |
+| `PRODUCTIONALIZATION.md`             | Toolchain, module layout, migration history             |
 | `CLAUDE.md`                          | This file — project context for AI-assisted development |
 | `StMike_Bulletin_Project_Context.md` | Detailed documentation of the legacy Excel/VBA system   |
 | `StMike_Bulletin.xlsm`               | Legacy Excel workbook (macro-enabled, for reference)    |
@@ -186,7 +195,7 @@ The project context document (`StMike_Bulletin_Project_Context.md`) contains exh
 
 When making changes to this application:
 
-1. **Keep it single-file.** No build steps, no npm, no frameworks. The priest opens one HTML file in Chrome and it works.
+1. **Edit `src/`, not the root HTML.** Source modules live in `src/`. Run `npm run build` to produce the deliverable at `dist/StMike_Bulletin_Generator.html`. The deliverable must remain a single self-contained HTML file with all CSS, JS, and assets inlined — no CDN or external file references at runtime. Run `npm test` and `npm run lint` before committing.
 2. **Test PDF export after any layout changes.** The html2canvas capture is sensitive to CSS changes. Always verify that the exported PDF matches the preview.
 3. **Think about the user.** Every UI element should be large enough and clear enough for an older person with progressive lenses to use comfortably.
 4. **The fold line is fixed.** Never make the center column divider adjustable.

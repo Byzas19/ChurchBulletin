@@ -12,12 +12,28 @@ export function renderBackCover() {
 }
 
 export function wireBackCoverEvents() {
-  document.getElementById('bcChurchName').addEventListener('input', function () { state.backCover.churchName = this.value; });
-  document.getElementById('bcAddress1').addEventListener('input', function () { state.backCover.address1 = this.value; });
-  document.getElementById('bcAddress2').addEventListener('input', function () { state.backCover.address2 = this.value; });
-  document.getElementById('bcPriestName').addEventListener('input', function () { state.backCover.priestName = this.value; });
-  document.getElementById('bcPhone').addEventListener('input', function () { state.backCover.phone = this.value; });
-  document.getElementById('bcFax').addEventListener('input', function () { state.backCover.fax = this.value; });
-  document.getElementById('bcEmail').addEventListener('input', function () { state.backCover.email = this.value; });
-  document.getElementById('bcWebsite').addEventListener('input', function () { state.backCover.website = this.value; });
+  document.getElementById('bcChurchName').addEventListener('input', function () {
+    state.backCover.churchName = this.value;
+  });
+  document.getElementById('bcAddress1').addEventListener('input', function () {
+    state.backCover.address1 = this.value;
+  });
+  document.getElementById('bcAddress2').addEventListener('input', function () {
+    state.backCover.address2 = this.value;
+  });
+  document.getElementById('bcPriestName').addEventListener('input', function () {
+    state.backCover.priestName = this.value;
+  });
+  document.getElementById('bcPhone').addEventListener('input', function () {
+    state.backCover.phone = this.value;
+  });
+  document.getElementById('bcFax').addEventListener('input', function () {
+    state.backCover.fax = this.value;
+  });
+  document.getElementById('bcEmail').addEventListener('input', function () {
+    state.backCover.email = this.value;
+  });
+  document.getElementById('bcWebsite').addEventListener('input', function () {
+    state.backCover.website = this.value;
+  });
 }

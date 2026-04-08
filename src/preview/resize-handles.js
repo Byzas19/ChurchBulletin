@@ -138,25 +138,45 @@ export function setupMarginHandles() {
 
   const defs = [
     {
-      prop: 'leftOuter', cssEl: colLeft, side: 'left',
-      getPos: function () { return colLeft.getBoundingClientRect().left - bulletinRect.left; },
+      prop: 'leftOuter',
+      cssEl: colLeft,
+      side: 'left',
+      getPos: function () {
+        return colLeft.getBoundingClientRect().left - bulletinRect.left;
+      },
       dir: 1,
     },
     {
-      prop: 'leftInner', cssEl: colLeft, side: 'right',
+      prop: 'leftInner',
+      cssEl: colLeft,
+      side: 'right',
       getPos: function () {
-        return colLeft.getBoundingClientRect().right - bulletinRect.left - colLeft.clientWidth + colLeft.offsetWidth - 7;
+        return (
+          colLeft.getBoundingClientRect().right -
+          bulletinRect.left -
+          colLeft.clientWidth +
+          colLeft.offsetWidth -
+          7
+        );
       },
       dir: -1,
     },
     {
-      prop: 'rightInner', cssEl: colRight, side: 'left',
-      getPos: function () { return colRight.getBoundingClientRect().left - bulletinRect.left; },
+      prop: 'rightInner',
+      cssEl: colRight,
+      side: 'left',
+      getPos: function () {
+        return colRight.getBoundingClientRect().left - bulletinRect.left;
+      },
       dir: 1,
     },
     {
-      prop: 'rightOuter', cssEl: colRight, side: 'right',
-      getPos: function () { return colRight.getBoundingClientRect().right - bulletinRect.left - 7; },
+      prop: 'rightOuter',
+      cssEl: colRight,
+      side: 'right',
+      getPos: function () {
+        return colRight.getBoundingClientRect().right - bulletinRect.left - 7;
+      },
       dir: -1,
     },
   ];
@@ -184,7 +204,11 @@ export function setupMarginHandles() {
           colLeft.style.padding =
             '0 ' + state.sectionMargins.leftInner + 'px 0 ' + state.sectionMargins.leftOuter + 'px';
           colRight.style.padding =
-            '0 ' + state.sectionMargins.rightOuter + 'px 0 ' + state.sectionMargins.rightInner + 'px';
+            '0 ' +
+            state.sectionMargins.rightOuter +
+            'px 0 ' +
+            state.sectionMargins.rightInner +
+            'px';
 
           const allMH = bulletin.querySelectorAll('.margin-handle');
           for (let mi = 0; mi < allMH.length; mi++) {

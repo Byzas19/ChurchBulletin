@@ -36,9 +36,17 @@ export function renderPicGallery() {
     const p = state.pictures[i];
     html +=
       '<div class="pic-item">' +
-      '<button class="pic-remove" data-pic-remove="' + p.id + '">\u00d7</button>' +
-      '<img class="pic-thumb" src="' + p.dataUrl + '" alt="' + escHtml(p.name) + '">' +
-      '<span class="pic-label">' + escHtml(p.name) + '</span>' +
+      '<button class="pic-remove" data-pic-remove="' +
+      p.id +
+      '">\u00d7</button>' +
+      '<img class="pic-thumb" src="' +
+      p.dataUrl +
+      '" alt="' +
+      escHtml(p.name) +
+      '">' +
+      '<span class="pic-label">' +
+      escHtml(p.name) +
+      '</span>' +
       '</div>';
   }
   gal.innerHTML = html;

@@ -79,7 +79,15 @@ describe('generatePreview overflow balancing', () => {
   it('shows image count in layout info', async () => {
     state.announcements = [{ title: 'A1', text: 'Short' }];
     state.pictures = [
-      { id: 1, name: 'test.png', dataUrl: 'data:image/png;base64,abc', xPct: 5, yPct: 70, wPx: 120, hPx: 100 },
+      {
+        id: 1,
+        name: 'test.png',
+        dataUrl: 'data:image/png;base64,abc',
+        xPct: 5,
+        yPct: 70,
+        wPx: 120,
+        hPx: 100,
+      },
     ];
 
     const measure = await import('../../utils/measure.js');

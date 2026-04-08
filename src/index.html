@@ -34,18 +34,11 @@
     <!-- Toolbar -->
     <div class="toolbar">
       <label class="btn-action file-label"
-        >📂 Load<input
-          type="file"
-          accept=".bulletin,.json"
-          id="loadFileInput"
+        >📂 Load<input type="file" accept=".bulletin,.json" id="loadFileInput"
       /></label>
       <button class="btn-action" id="btnSave">💾 Save</button>
-      <button class="btn-action btn-clear" id="btnClear">
-        🗑 Clear
-      </button>
-      <button class="btn-action btn-export" id="btnExport">
-        📥 Export PDF
-      </button>
+      <button class="btn-action btn-clear" id="btnClear">🗑 Clear</button>
+      <button class="btn-action btn-export" id="btnExport">📥 Export PDF</button>
       <div class="sep"></div>
       <div class="font-ctl">
         <label>Schedule:</label>
@@ -85,89 +78,55 @@
     <!-- Main Content -->
     <div class="main">
       <div class="tabs">
-        <button id="tabSchedule" class="active">
-          📅 Liturgy Schedule
-        </button>
-        <button id="tabAnnouncements">
-          📢 Announcements
-        </button>
-        <button id="tabBackCover">
-          📋 Back Cover
-        </button>
-        <button id="tabPictures">
-          🖼 Pictures
-        </button>
-        <button id="tabPreview">
-          📄 Preview
-        </button>
+        <button id="tabSchedule" class="active">📅 Liturgy Schedule</button>
+        <button id="tabAnnouncements">📢 Announcements</button>
+        <button id="tabBackCover">📋 Back Cover</button>
+        <button id="tabPictures">🖼 Pictures</button>
+        <button id="tabPreview">📄 Preview</button>
       </div>
 
       <div class="tab-content" id="scheduleTab">
         <div class="hint">
           <strong>Formatting:</strong>
-          <code>+Name</code> → † Name (deceased) &nbsp;|&nbsp;
-          <code>@Text</code> → <b><i>Bold Italic</i></b> (liturgical days)
+          <code>+Name</code> → † Name (deceased) &nbsp;|&nbsp; <code>@Text</code> →
+          <b><i>Bold Italic</i></b> (liturgical days)
         </div>
         <div id="scheduleList"></div>
-        <button class="btn-add" id="btnAddSchedule">
-          + Add Liturgy Entry
-        </button>
+        <button class="btn-add" id="btnAddSchedule">+ Add Liturgy Entry</button>
       </div>
 
       <div class="tab-content hidden" id="announcementsTab">
         <div class="hint">
-          All announcements appear in the <strong>right column</strong>. If they
-          don't fit, overflow announcements are automatically placed in the left
-          column below the schedule.<br />
+          All announcements appear in the <strong>right column</strong>. If they don't fit, overflow
+          announcements are automatically placed in the left column below the schedule.<br />
           <strong>Formatting:</strong>
           <code>#</code> → • bullet &nbsp;|&nbsp; <code>+Name</code> → † Name
         </div>
         <div id="annList"></div>
-        <button class="btn-add" id="btnAddAnnouncement">
-          + Add Announcement
-        </button>
+        <button class="btn-add" id="btnAddAnnouncement">+ Add Announcement</button>
       </div>
 
       <div class="tab-content hidden" id="backcoverTab">
         <div class="hint">
-          This information appears on the <strong>back cover</strong> of the
-          printed bulletin (the reverse side). Edit the fields below as needed.
+          This information appears on the <strong>back cover</strong> of the printed bulletin (the
+          reverse side). Edit the fields below as needed.
         </div>
         <div class="card" style="border-left: 4px solid var(--navy)">
           <div class="field" style="margin-bottom: 8px">
             <label>Church Name</label
-            ><input
-              type="text"
-              id="bcChurchName"
-              style="font-size: 16px; font-weight: 600"
-            />
+            ><input type="text" id="bcChurchName" style="font-size: 16px; font-weight: 600" />
           </div>
           <div class="card-row">
             <div class="field" style="flex: 1">
-              <label>Address Line 1</label
-              ><input
-                type="text"
-                id="bcAddress1"
-              />
+              <label>Address Line 1</label><input type="text" id="bcAddress1" />
             </div>
             <div class="field" style="flex: 1">
-              <label>Address Line 2</label
-              ><input
-                type="text"
-                id="bcAddress2"
-              />
+              <label>Address Line 2</label><input type="text" id="bcAddress2" />
             </div>
           </div>
         </div>
         <div class="card" style="border-left: 4px solid var(--gold)">
-          <div
-            style="
-              font-size: 10px;
-              color: #8a7d6e;
-              font-weight: 600;
-              margin-bottom: 6px;
-            "
-          >
+          <div style="font-size: 10px; color: #8a7d6e; font-weight: 600; margin-bottom: 6px">
             Contact Information
           </div>
           <div class="card-row">
@@ -184,12 +143,7 @@
               Parish Priest:
             </div>
             <div class="field" style="flex: 1">
-              <label>Name</label
-              ><input
-                type="text"
-                id="bcPriestName"
-                style="font-weight: 700"
-              />
+              <label>Name</label><input type="text" id="bcPriestName" style="font-weight: 700" />
             </div>
           </div>
           <div class="card-row">
@@ -206,12 +160,7 @@
               Telephone:
             </div>
             <div class="field" style="flex: 1">
-              <label>Phone Number</label
-              ><input
-                type="text"
-                id="bcPhone"
-                style="font-weight: 700"
-              />
+              <label>Phone Number</label><input type="text" id="bcPhone" style="font-weight: 700" />
             </div>
           </div>
           <div class="card-row">
@@ -228,12 +177,7 @@
               Fax:
             </div>
             <div class="field" style="flex: 1">
-              <label>Fax Number</label
-              ><input
-                type="text"
-                id="bcFax"
-                style="font-weight: 700"
-              />
+              <label>Fax Number</label><input type="text" id="bcFax" style="font-weight: 700" />
             </div>
           </div>
           <div class="card-row">
@@ -251,11 +195,7 @@
             </div>
             <div class="field" style="flex: 1">
               <label>Email Address</label
-              ><input
-                type="text"
-                id="bcEmail"
-                style="font-weight: 700"
-              />
+              ><input type="text" id="bcEmail" style="font-weight: 700" />
             </div>
           </div>
           <div class="card-row">
@@ -273,11 +213,7 @@
             </div>
             <div class="field" style="flex: 1">
               <label>Website URL</label
-              ><input
-                type="text"
-                id="bcWebsite"
-                style="font-weight: 700"
-              />
+              ><input type="text" id="bcWebsite" style="font-weight: 700" />
             </div>
           </div>
         </div>
@@ -285,20 +221,14 @@
 
       <div class="tab-content hidden" id="picturesTab">
         <div class="hint">
-          Upload images below. Switch to the <strong>Preview</strong> tab to see
-          the bulletin. On the preview you can <strong>drag</strong> images to
-          position them and <strong>resize</strong>
-          using the corner handle. Hover over an image to see the ✕ delete
-          button.
+          Upload images below. Switch to the <strong>Preview</strong> tab to see the bulletin. On
+          the preview you can <strong>drag</strong> images to position them and
+          <strong>resize</strong>
+          using the corner handle. Hover over an image to see the ✕ delete button.
         </div>
         <label
           class="btn-add"
-          style="
-            text-align: center;
-            display: block;
-            cursor: pointer;
-            margin-bottom: 12px;
-          "
+          style="text-align: center; display: block; cursor: pointer; margin-bottom: 12px"
         >
           📁 Click to upload images
           <input
@@ -313,31 +243,13 @@
       </div>
 
       <div class="preview-tab-content hidden" id="previewTab">
-        <div
-          style="
-            display: flex;
-            justify-content: center;
-            margin-bottom: 6px;
-            gap: 0;
-          "
-        >
-          <button
-            id="prevPageFront"
-            class="prev-page-btn active"
-          >
-            Inside (Front)
-          </button>
-          <button
-            id="prevPageBack"
-            class="prev-page-btn"
-          >
-            Back Cover
-          </button>
+        <div style="display: flex; justify-content: center; margin-bottom: 6px; gap: 0">
+          <button id="prevPageFront" class="prev-page-btn active">Inside (Front)</button>
+          <button id="prevPageBack" class="prev-page-btn">Back Cover</button>
         </div>
         <div class="preview-box" id="previewBox">
           <div class="preview-empty">
-            Click the <strong>Preview</strong> tab to generate the bulletin
-            preview.
+            Click the <strong>Preview</strong> tab to generate the bulletin preview.
           </div>
         </div>
       </div>

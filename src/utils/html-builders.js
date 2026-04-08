@@ -1,4 +1,11 @@
-import { escHtml, fmtDateShort, fmtTime, fmtBulletinDate, processText, renderIntention } from './formatting.js';
+import {
+  escHtml,
+  fmtDateShort,
+  fmtTime,
+  fmtBulletinDate,
+  processText,
+  renderIntention,
+} from './formatting.js';
 import state from '../state/store.js';
 
 export function buildScheduleHtml(sundayDate, schedFontSizeValue) {
@@ -14,10 +21,16 @@ export function buildScheduleHtml(sundayDate, schedFontSizeValue) {
     '</div>';
   html +=
     '<table class="sched-table"><colgroup>' +
-    '<col style="width:' + state.colWidths.date + 'px">' +
-    '<col style="width:' + state.colWidths.time + 'px">' +
+    '<col style="width:' +
+    state.colWidths.date +
+    'px">' +
+    '<col style="width:' +
+    state.colWidths.time +
+    'px">' +
     '<col>' +
-    '<col style="width:' + state.colWidths.donor + 'px">' +
+    '<col style="width:' +
+    state.colWidths.donor +
+    'px">' +
     '</colgroup>';
   for (let i = 0; i < state.schedule.length; i++) {
     const e = state.schedule[i];
@@ -30,27 +43,41 @@ export function buildScheduleHtml(sundayDate, schedFontSizeValue) {
         const displayText = isBold ? processed.substring(1) : processed;
         if (li === 0) {
           html +=
-            '<tr><td style="padding-top:' + (i > 0 ? '3' : '0') + 'px">' +
+            '<tr><td style="padding-top:' +
+            (i > 0 ? '3' : '0') +
+            'px">' +
             escHtml(fmtDateShort(e.date)) +
             '</td><td></td><td colspan="2" class="prefix-line">' +
-            escHtml(displayText) + '</td></tr>';
+            escHtml(displayText) +
+            '</td></tr>';
         } else {
           html +=
             '<tr><td></td><td></td><td colspan="2" class="prefix-line">' +
-            escHtml(displayText) + '</td></tr>';
+            escHtml(displayText) +
+            '</td></tr>';
         }
       }
       html +=
-        '<tr><td></td><td>' + escHtml(fmtTime(e.time)) +
-        '</td><td>' + renderIntention(e.intention) +
-        '</td><td>' + escHtml(e.donor) + '</td></tr>';
+        '<tr><td></td><td>' +
+        escHtml(fmtTime(e.time)) +
+        '</td><td>' +
+        renderIntention(e.intention) +
+        '</td><td>' +
+        escHtml(e.donor) +
+        '</td></tr>';
     } else {
       html +=
-        '<tr><td style="padding-top:' + (i > 0 ? '1' : '0') + 'px">' +
+        '<tr><td style="padding-top:' +
+        (i > 0 ? '1' : '0') +
+        'px">' +
         escHtml(fmtDateShort(e.date)) +
-        '</td><td>' + escHtml(fmtTime(e.time)) +
-        '</td><td>' + renderIntention(e.intention) +
-        '</td><td>' + escHtml(e.donor) + '</td></tr>';
+        '</td><td>' +
+        escHtml(fmtTime(e.time)) +
+        '</td><td>' +
+        renderIntention(e.intention) +
+        '</td><td>' +
+        escHtml(e.donor) +
+        '</td></tr>';
     }
   }
   html += '</table><div class="sched-sep"></div>';

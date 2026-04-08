@@ -42,7 +42,9 @@ export function renderIntention(text) {
   const processed = processText(text);
   if (text.startsWith('@'))
     return (
-      '<span style="font-weight:700;font-style:italic">' + escHtml(processed.substring(1)) + '</span>'
+      '<span style="font-weight:700;font-style:italic">' +
+      escHtml(processed.substring(1)) +
+      '</span>'
     );
   return escHtml(processed);
 }

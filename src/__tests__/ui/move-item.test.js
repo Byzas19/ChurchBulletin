@@ -35,11 +35,7 @@ describe('moveItem', () => {
   });
 
   it('works with objects (schedule entries)', () => {
-    const arr = [
-      { title: 'First' },
-      { title: 'Second' },
-      { title: 'Third' },
-    ];
+    const arr = [{ title: 'First' }, { title: 'Second' }, { title: 'Third' }];
     moveItem(arr, 1, -1);
     expect(arr[0].title).toBe('Second');
     expect(arr[1].title).toBe('First');

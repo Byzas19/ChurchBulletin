@@ -33,8 +33,7 @@ export function importData(event) {
   reader.onload = function (e) {
     try {
       const data = JSON.parse(e.target.result);
-      if (data.sundayDate)
-        document.getElementById('sundayDate').value = data.sundayDate;
+      if (data.sundayDate) document.getElementById('sundayDate').value = data.sundayDate;
       if (data.schedule) state.schedule = data.schedule;
       if (data.announcements) state.announcements = data.announcements;
       if (data.pictures) {
@@ -42,16 +41,16 @@ export function importData(event) {
         state.picIdCounter = Math.max.apply(
           null,
           state.pictures
-            .map(function (p) { return p.id; })
+            .map(function (p) {
+              return p.id;
+            })
             .concat([0]),
         );
       }
       if (data.colWidths) state.colWidths = data.colWidths;
       if (data.sectionMargins) state.sectionMargins = data.sectionMargins;
-      if (data.schedFontSize)
-        document.getElementById('schedFontSize').value = data.schedFontSize;
-      if (data.annFontSize)
-        document.getElementById('annFontSize').value = data.annFontSize;
+      if (data.schedFontSize) document.getElementById('schedFontSize').value = data.schedFontSize;
+      if (data.annFontSize) document.getElementById('annFontSize').value = data.annFontSize;
       if (data.backCover) {
         for (const k in data.backCover) {
           if (Object.prototype.hasOwnProperty.call(data.backCover, k))

@@ -10,15 +10,29 @@ export function renderAnnouncements() {
     html +=
       '<div class="card" style="border-left:4px solid var(--gold)">' +
       '<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">' +
-      '<div style="font-size:10px;color:#8a7d6e;font-weight:600;flex:1">Announcement #' + (i + 1) + '</div>' +
-      '<button class="btn-sm" data-ann-move="' + i + '" data-dir="-1">\u2191</button>' +
-      '<button class="btn-sm" data-ann-move="' + i + '" data-dir="1">\u2193</button>' +
-      '<button class="btn-sm del" data-ann-del="' + i + '">\u2715</button>' +
+      '<div style="font-size:10px;color:#8a7d6e;font-weight:600;flex:1">Announcement #' +
+      (i + 1) +
+      '</div>' +
+      '<button class="btn-sm" data-ann-move="' +
+      i +
+      '" data-dir="-1">\u2191</button>' +
+      '<button class="btn-sm" data-ann-move="' +
+      i +
+      '" data-dir="1">\u2193</button>' +
+      '<button class="btn-sm del" data-ann-del="' +
+      i +
+      '">\u2715</button>' +
       '</div>' +
       '<div class="field" style="margin-bottom:6px"><label>Title</label><input type="text" value="' +
-      escHtml(a.title) + '" data-ann-idx="' + i + '" data-ann-field="title" style="font-weight:700" placeholder="TITLE:"></div>' +
-      '<div class="field"><label>Text</label><textarea rows="4" data-ann-idx="' + i + '" data-ann-field="text" placeholder="Announcement text...">' +
-      escHtml(a.text) + '</textarea></div>' +
+      escHtml(a.title) +
+      '" data-ann-idx="' +
+      i +
+      '" data-ann-field="title" style="font-weight:700" placeholder="TITLE:"></div>' +
+      '<div class="field"><label>Text</label><textarea rows="4" data-ann-idx="' +
+      i +
+      '" data-ann-field="text" placeholder="Announcement text...">' +
+      escHtml(a.text) +
+      '</textarea></div>' +
       '</div>';
   }
   list.innerHTML = html;

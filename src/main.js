@@ -36,15 +36,29 @@ document.getElementById('annFontSize').addEventListener('change', function () {
 });
 
 // ── Tab buttons ──
-document.getElementById('tabSchedule').addEventListener('click', function () { switchTab('schedule'); });
-document.getElementById('tabAnnouncements').addEventListener('click', function () { switchTab('announcements'); });
-document.getElementById('tabBackCover').addEventListener('click', function () { switchTab('backcover'); });
-document.getElementById('tabPictures').addEventListener('click', function () { switchTab('pictures'); });
-document.getElementById('tabPreview').addEventListener('click', function () { switchTab('preview'); });
+document.getElementById('tabSchedule').addEventListener('click', function () {
+  switchTab('schedule');
+});
+document.getElementById('tabAnnouncements').addEventListener('click', function () {
+  switchTab('announcements');
+});
+document.getElementById('tabBackCover').addEventListener('click', function () {
+  switchTab('backcover');
+});
+document.getElementById('tabPictures').addEventListener('click', function () {
+  switchTab('pictures');
+});
+document.getElementById('tabPreview').addEventListener('click', function () {
+  switchTab('preview');
+});
 
 // ── Preview page toggle ──
-document.getElementById('prevPageFront').addEventListener('click', function () { switchPreviewPage('front'); });
-document.getElementById('prevPageBack').addEventListener('click', function () { switchPreviewPage('back'); });
+document.getElementById('prevPageFront').addEventListener('click', function () {
+  switchPreviewPage('front');
+});
+document.getElementById('prevPageBack').addEventListener('click', function () {
+  switchPreviewPage('back');
+});
 
 // ── Delegated events for dynamic content ──
 wireScheduleEvents();

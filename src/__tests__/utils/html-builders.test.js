@@ -6,7 +6,13 @@ describe('buildScheduleHtml', () => {
   beforeEach(() => {
     // Reset state to a minimal schedule for predictable tests
     state.schedule = [
-      { date: '2026-02-08', time: '09:00', intention: 'Intention of all Parishioners', donor: '', prefix: '' },
+      {
+        date: '2026-02-08',
+        time: '09:00',
+        intention: 'Intention of all Parishioners',
+        donor: '',
+        prefix: '',
+      },
     ];
     state.colWidths = { date: 70, time: 55, donor: 85 };
   });
@@ -44,7 +50,13 @@ describe('buildScheduleHtml', () => {
 
   it('renders prefix lines as separate rows', () => {
     state.schedule = [
-      { date: '2026-02-02', time: '08:00', intention: '+Name', donor: 'Donor', prefix: 'Presentation\\nBlessing' },
+      {
+        date: '2026-02-02',
+        time: '08:00',
+        intention: '+Name',
+        donor: 'Donor',
+        prefix: 'Presentation\\nBlessing',
+      },
     ];
     const html = buildScheduleHtml('2026-02-02', '9.5');
     // Should have 3 rows: prefix line 1, prefix line 2, data row
@@ -56,7 +68,13 @@ describe('buildScheduleHtml', () => {
 
   it('handles @-prefixed liturgical day notes', () => {
     state.schedule = [
-      { date: '2026-02-08', time: '09:00', intention: 'Intention', donor: '', prefix: '@Sunday of Meat Fare' },
+      {
+        date: '2026-02-08',
+        time: '09:00',
+        intention: 'Intention',
+        donor: '',
+        prefix: '@Sunday of Meat Fare',
+      },
     ];
     const html = buildScheduleHtml('2026-02-08', '9.5');
     expect(html).toContain('prefix-line');

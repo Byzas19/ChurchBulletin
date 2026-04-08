@@ -16,7 +16,9 @@ describe('exportData serialization', () => {
     `;
 
     // Reset state
-    state.schedule = [{ date: '2026-02-08', time: '09:00', intention: 'Test', donor: 'D', prefix: '' }];
+    state.schedule = [
+      { date: '2026-02-08', time: '09:00', intention: 'Test', donor: 'D', prefix: '' },
+    ];
     state.announcements = [{ title: 'T', text: 'Body' }];
     state.pictures = [];
     state.colWidths = { ...DEFAULT_COL_WIDTHS };
@@ -32,7 +34,10 @@ describe('exportData serialization', () => {
     let capturedBlob = null;
     const origCreate = URL.createObjectURL;
     const origRevoke = URL.revokeObjectURL;
-    URL.createObjectURL = (blob) => { capturedBlob = blob; return 'blob:test'; };
+    URL.createObjectURL = (blob) => {
+      capturedBlob = blob;
+      return 'blob:test';
+    };
     URL.revokeObjectURL = () => {};
 
     // Mock the anchor click so it doesn't actually download
@@ -81,8 +86,13 @@ describe('clearAll', () => {
       { date: '2026-02-08', time: '09:00', intention: 'Test', donor: 'D', prefix: '' },
       { date: '2026-02-09', time: '', intention: 'Test2', donor: 'D2', prefix: '' },
     ];
-    state.announcements = [{ title: 'A', text: 'B' }, { title: 'C', text: 'D' }];
-    state.pictures = [{ id: 1, name: 'test.png', dataUrl: 'data:test', xPct: 5, yPct: 70, wPx: 120, hPx: 100 }];
+    state.announcements = [
+      { title: 'A', text: 'B' },
+      { title: 'C', text: 'D' },
+    ];
+    state.pictures = [
+      { id: 1, name: 'test.png', dataUrl: 'data:test', xPct: 5, yPct: 70, wPx: 120, hPx: 100 },
+    ];
   });
 
   it('resets state to single empty entries and clears pictures', async () => {
